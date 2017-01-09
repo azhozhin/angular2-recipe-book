@@ -23,7 +23,15 @@ export class RecipeService {
     return this.recipes[id];
   }
 
-  deleteRecipe(recipe:Recipe){
-    this.recipes.splice(this.recipes.indexOf(recipe),1);
+  deleteRecipe(recipe: Recipe) {
+    this.recipes.splice(this.recipes.indexOf(recipe), 1);
+  }
+
+  addRecipe(newRecipe: Recipe) {
+    this.recipes.push(newRecipe);
+  }
+
+  editRecipe(recipe: Recipe, newRecipe: Recipe) {
+    this.recipes[this.recipes.indexOf(recipe)] = newRecipe;
   }
 }
