@@ -1,9 +1,10 @@
 import {NgModule} from "@angular/core";
+import {FormsModule} from "@angular/forms";
+
 import {ShoppingListAddComponent} from "./shopping-list-add.component";
 import {ShoppingListComponent} from "./shopping-list.component";
-import {FormsModule} from "@angular/forms";
-import {CommonModule} from "@angular/common";
 import {shoppingListRouting} from "./shopping-list.routing";
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -11,7 +12,7 @@ import {shoppingListRouting} from "./shopping-list.routing";
     ShoppingListAddComponent,
   ],
   imports: [
-    CommonModule,
+    SharedModule,
     FormsModule,
     shoppingListRouting
   ]

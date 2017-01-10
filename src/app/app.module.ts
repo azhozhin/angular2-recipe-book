@@ -5,18 +5,17 @@ import {HttpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header.component';
-import {DropdownDirective} from './dropdown.directive';
 import {ShoppingListService} from "./shopping-list/shopping-list.service";
 import {routing} from "./app.routing";
-import {ShoppingListModule} from "./shopping-list/shopping-list.module";
-import {HomeComponent} from './home.component';
+import { PageNotFoundComponent } from './page-not-found.component';
+import {CoreModule} from "./core.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    DropdownDirective,
-    HomeComponent,
+
+    PageNotFoundComponent,
 
   ],
   imports: [
@@ -24,8 +23,7 @@ import {HomeComponent} from './home.component';
     HttpModule,
     ReactiveFormsModule,
     routing,
-
-    ShoppingListModule,
+    CoreModule,
   ],
   providers: [ShoppingListService, FormBuilder],
   bootstrap: [AppComponent]
