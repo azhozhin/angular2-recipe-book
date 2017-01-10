@@ -1,7 +1,6 @@
 import {Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter} from '@angular/core';
-import {NgForm} from "@angular/forms";
-import {Ingredient} from "../shared/ingredient";
-import {ShoppingListService} from "./shopping-list.service";
+import {Ingredient} from '../shared/ingredient';
+import {ShoppingListService} from './shopping-list.service';
 
 @Component({
   selector: 'rb-shopping-list-add',
@@ -23,9 +22,7 @@ export class ShoppingListAddComponent implements OnInit, OnChanges {
     if (changes['item'].currentValue === null) {
       this.isAdd = true;
       this.item = new Ingredient(null, null);
-      ShoppingListService
-    }
-    else {
+    } else {
       this.isAdd = false;
     }
 
@@ -37,19 +34,18 @@ export class ShoppingListAddComponent implements OnInit, OnChanges {
     if (!this.isAdd) {
       this.shoppilgListService.editItem(this.item, newIngredient);
       this.onClear();
-    }
-    else {
+    } else {
       this.item = newIngredient;
       this.shoppilgListService.addItem(this.item);
     }
   }
 
-  onDelete(){
+  onDelete() {
     this.shoppilgListService.deleteItem(this.item);
     this.onClear();
   }
 
-  onClear(){
+  onClear() {
     this.isAdd = true;
     this.cleared.emit(null);
   }

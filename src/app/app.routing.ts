@@ -1,6 +1,6 @@
-import {Routes, RouterModule} from "@angular/router";
-import {HomeComponent} from "./home.component";
-import {PageNotFoundComponent} from "./page-not-found.component";
+import {Routes, RouterModule} from '@angular/router';
+import {HomeComponent} from './home.component';
+import {PageNotFoundComponent} from './page-not-found.component';
 
 const APP_ROUTES: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},

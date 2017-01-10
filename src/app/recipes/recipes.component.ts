@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Recipe} from "./recipe";
+import {Component, OnInit} from '@angular/core';
+import {Recipe} from './recipe';
 
 @Component({
   selector: 'rb-recipes',
@@ -7,9 +7,8 @@ import {Recipe} from "./recipe";
 })
 export class RecipesComponent implements OnInit {
 
-  selectedRecipe : Recipe;
-
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

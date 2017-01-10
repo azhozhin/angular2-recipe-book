@@ -1,10 +1,9 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {RecipeService} from "../recipe.service";
-import {Subscription} from "rxjs";
-import {Recipe} from "../recipe";
-import {FormArray, FormGroup, FormControl, Validator, Validators, FormBuilder} from "@angular/forms";
-import {forEach} from "@angular/router/src/utils/collection";
+import {ActivatedRoute, Router} from '@angular/router';
+import {RecipeService} from '../recipe.service';
+import {Subscription} from 'rxjs';
+import {Recipe} from '../recipe';
+import {FormArray, FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'rb-recipe-edit',
@@ -32,14 +31,13 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
           this.isNew = false;
           this.recipeId = params['id'];
           this.recipe = this.recipeService.getRecipe(this.recipeId);
-        }
-        else {
+        } else {
           this.isNew = true;
           this.recipe = null;
         }
         this.initForm();
       }
-    )
+    );
   }
 
   onSubmit() {
@@ -47,8 +45,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
     const newRecipe: Recipe = this.recipeForm.value;
     if (this.isNew) {
       this.recipeService.addRecipe(newRecipe);
-    }
-    else {
+    } else {
       this.recipeService.editRecipe(this.recipe, newRecipe);
     }
     this.navigateBack();
@@ -60,8 +57,8 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
 
   onAddItem(name: string, amount: string) {
     (<FormArray>this.recipeForm.controls['ingredients']).push(
-      this.buildIngredientFormGroup(name, parseInt(amount))
-    )
+      this.buildIngredientFormGroup(name, parseInt(amount, 10))
+    );
   }
 
   onRemoveItem(i: number) {
@@ -88,7 +85,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
         for (let i = 0; i < this.recipe.ingredients.length; i++) {
           let ingredient = this.recipe.ingredients[i];
           recipeIngredients.push(
-            this.buildIngredientFormGroup(ingredient.name, ingredient.amount))
+            this.buildIngredientFormGroup(ingredient.name, ingredient.amount));
         }
       }
 
@@ -102,14 +99,14 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
       imagePath: [recipeImagePath, Validators.required],
       description: [recipeDescription, Validators.required],
       ingredients: recipeIngredients,
-    })
+    });
   }
 
   private buildIngredientFormGroup(name: string, amount: number) {
     return new FormGroup({
       name: new FormControl(name, Validators.required),
-      amount: new FormControl(amount, [Validators.required, Validators.pattern("\\d+")])
-    })
+      amount: new FormControl(amount, [Validators.required, Validators.pattern('\\d+')])
+    });
   }
 
 }

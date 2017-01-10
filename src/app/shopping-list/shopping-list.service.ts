@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Ingredient} from "../shared/ingredient";
+import {Ingredient} from '../shared/ingredient';
 
 @Injectable()
 export class ShoppingListService {
@@ -14,7 +14,7 @@ export class ShoppingListService {
   }
 
   addItems(items: Ingredient[]) {
-    Array.prototype.push.apply(this.items, items)
+    Array.prototype.push.apply(this.items, items);
   }
 
   addItem(item: Ingredient) {

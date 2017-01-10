@@ -5,10 +5,10 @@ import {HttpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header.component';
-import {ShoppingListService} from "./shopping-list/shopping-list.service";
-import {routing} from "./app.routing";
+import {ShoppingListService} from './shopping-list/shopping-list.service';
+import {routing} from './app.routing';
 import { PageNotFoundComponent } from './page-not-found.component';
-import {CoreModule} from "./core.module";
+import {CoreModule} from './core.module';
 
 @NgModule({
   declarations: [
